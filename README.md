@@ -1,6 +1,6 @@
 ## TODO's
 
-- [] Criar banco de dados com as tabelas de produtos e ordems
+- [x] Criar banco de dados com as tabelas de produtos e ordems
 
 ```sql
 CREATE TABLE IF NOT EXISTS products (
