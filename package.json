@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "vitest",
-    "db:migrate": "tsx ./database/create-tables.ts",
-    "db:clear": "tsx ./database/clear-tables.ts",
-    "db:seed": "tsx ./database/seed.ts"
+    "test": "vitest run",
+    "db:migrate": "tsx ./database/create-tables.ts --run",
+    "db:clear": "tsx ./database/clear-tables.ts --run",
+    "db:seed": "tsx ./database/seed.ts --run"
   },
   "keywords": [],
   "author": "",

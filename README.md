@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS orders (
   CONSTRAINT fk_product FOREIGN KEY (product_id) REFERENCES products(id)
 );
 
-INSERT INTO products(id, name, price) VALUES ("a5f6e14e-2b12-4c2b-ae63-f85fbe05f141", "produto-01", 134.50)
+INSERT INTO products(id, name, price) VALUES ('a5f6e14e-2b12-4c2b-ae63-f85fbe05f141', 'produto-01', 134.50)
 ```
 
 - [] Criar servico de checkout

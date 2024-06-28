@@ -1,13 +1,11 @@
-import postgres from "postgres";
+import postgres, { type Sql } from "postgres";
 
-const sql = postgres("postgresql://admin:admin@localhost:5432/my_db");
-
-async function createTables() {
+export async function createTables(sql: Sql) {
   await sql`
-    CREATE TABLE IF NOT EXISTS products (
-      id VARCHAR(36) PRIMARY KEY,
-      name TEXT NOT NULL,
-      price FLOAT NOT NULL
+  CREATE TABLE IF NOT EXISTS products (
+    id VARCHAR(36) PRIMARY KEY,
+    name TEXT NOT NULL,
+    price FLOAT NOT NULL
     );`;
 
   await sql`
@@ -18,10 +16,12 @@ async function createTables() {
       approved_at DATE,
       price FLOAT NOT NULL,
       CONSTRAINT fk_product FOREIGN KEY (product_id) REFERENCES products(id)
-    );`;
+      );`;
 }
-
-createTables().then(() => {
-  console.log("Tables created ✅");
-  sql.end();
-});
+if (process.argv.includes("--run")) {
+  const sql = postgres("postgresql://admin:admin@localhost:5432/my_db");
+  createTables(sql).then(() => {
+    console.log("Tables created ✅");
+    sql.end();
+  });
+}
