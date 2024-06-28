@@ -23,7 +23,7 @@ describe("CheckoutUseCase", () => {
   });
 
   afterAll(async () => {
-    sql.end();
+    await sql.end();
   });
 
   it("Should do a checkout", async () => {

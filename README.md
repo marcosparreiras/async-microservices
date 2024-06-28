@@ -21,6 +21,6 @@ INSERT INTO products(id, name, price) VALUES ('a5f6e14e-2b12-4c2b-ae63-f85fbe05f
 
 - [x] Criar banco de dados com as tabelas de produtos e ordens
 
-- [] Criar servico de checkout (checkout, confirmPayment, getOrder)
+- [] Criar servico de checkout (checkout, approveOrder, getOrder)
 
 - [] Criar servico de pagamentos (processPayment)
