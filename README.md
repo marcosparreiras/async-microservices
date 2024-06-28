@@ -1,7 +1,5 @@
 ## TODO's
 
-- [x] Criar banco de dados com as tabelas de produtos e ordems
-
 ```sql
 CREATE TABLE IF NOT EXISTS products (
   id VARCHAR(36) PRIMARY KEY,
@@ -21,15 +19,8 @@ CREATE TABLE IF NOT EXISTS orders (
 INSERT INTO products(id, name, price) VALUES ('a5f6e14e-2b12-4c2b-ae63-f85fbe05f141', 'produto-01', 134.50)
 ```
 
-- [] Criar servico de checkout
+- [x] Criar banco de dados com as tabelas de produtos e ordens
 
-- [] Criar servico de processar pagamentos
+- [] Criar servico de checkout (checkout, confirmPayment, getOrder)
 
-```ts
-interface Input {
-  orderId: string;
-  price: number;
-  paymentToken: string;
-  createdAt: Date;
-}
-```
+- [] Criar servico de pagamentos (processPayment)
