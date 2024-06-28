@@ -1,10 +1,12 @@
 {
   "name": "lab01",
   "version": "1.0.0",
-  "description": "- [] Criar banco de dados com as tabelas de produtos e ordems",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "db:migrate": "tsx ./database/create-tables.ts",
+    "db:clear": "tsx ./database/clear-tables.ts",
+    "db:seed": "tsx ./database/seed.ts"
   },
   "keywords": [],
   "author": "",
@@ -13,5 +15,8 @@
     "@types/node": "^20.14.9",
     "tsx": "^4.15.7",
     "typescript": "^5.5.2"
+  },
+  "dependencies": {
+    "postgres": "^3.4.4"
   }
 }
