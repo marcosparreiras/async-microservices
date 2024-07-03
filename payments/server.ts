@@ -24,4 +24,6 @@ async function server() {
   }
 }
 
-server();
+server().then(() => {
+  console.log("Payments queue consumers started");
+});

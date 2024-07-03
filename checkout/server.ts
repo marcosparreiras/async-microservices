@@ -37,5 +37,5 @@ app.listen({ port: 3333 }).then(() => {
 });
 
 startQueueConsumers().then(() => {
-  console.log("Queue consumers started");
+  console.log("Checkout queue consumers started");
 });
