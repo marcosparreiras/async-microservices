@@ -7,11 +7,14 @@ import type { ProductsRepository } from "../repositories/products-repository";
 import { ProductNotFoundException } from "../exceptions/product-not-found-exception";
 import { clearTables } from "../../../database/clear-tables";
 import { seed } from "../../../database/seed";
+import type { Queue } from "../queue/queue";
+import { BrokerQueue } from "../../infra/adapters/broker-queue";
 
 describe("CheckoutUseCase", () => {
   const sql = postgres("postgresql://admin:admin@localhost:5432/my_db");
   let ordersRepository: OrdersRepository;
   let productsRepository: ProductsRepository;
+  let queue: Queue;
   let sut: CheckoutUseCase;
 
   beforeEach(async () => {
@@ -19,7 +22,8 @@ describe("CheckoutUseCase", () => {
     await seed(sql);
     ordersRepository = new DbOrdersRepository();
     productsRepository = new DbProductsRepository();
-    sut = new CheckoutUseCase(ordersRepository, productsRepository);
+    queue = new BrokerQueue();
+    sut = new CheckoutUseCase(ordersRepository, productsRepository, queue);
   });
 
   afterAll(async () => {
