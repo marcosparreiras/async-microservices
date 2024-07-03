@@ -19,7 +19,7 @@ export class BrokerQueue implements Queue {
     await this.connect();
     if (this.connection === null) return;
     const channel = await this.connection.createChannel();
-    channel.assertQueue(queue, { durable: false });
+    await channel.assertQueue(queue, { durable: false });
     channel.sendToQueue(queue, Buffer.from(JSON.stringify(message)));
   }
 }
